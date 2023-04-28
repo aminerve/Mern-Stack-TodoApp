@@ -15,5 +15,4 @@ module.exports.createToDo = async (req,res) => {
         console.log(data);
         res.send(data)
     })
-    res.send(toDo)
 }

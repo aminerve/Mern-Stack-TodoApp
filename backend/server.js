@@ -23,6 +23,7 @@ app.use((req, res, next) => {
 // Parsing incoming data from request
 // app.use(bodyparser.json());
 app.use(express.urlencoded({extended: false}));
+app.use(express.json())
 
 
 // All other Routes
