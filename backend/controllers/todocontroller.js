@@ -31,9 +31,9 @@ module.exports.updateToDo = async (req,res) => {
 }
 
 // Delete CTRL
-module.exports.updateToDo = async (req,res) => {
+module.exports.deleteToDo = async (req,res) => {
     const {_id} = req.body
-    TodoModel.findByIdAndRemove(_id)
+    TodoModel.findByIdAndDelete(_id)
     .then(() => {
          console.log('ToDo Deleted');
 
