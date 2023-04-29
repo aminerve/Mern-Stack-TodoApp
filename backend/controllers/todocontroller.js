@@ -7,7 +7,7 @@ module.exports.getToDo = async (req,res) => {
 
 module.exports.createToDo = async (req,res) => {
 
-    const {text} = req.body
+    const { text } = req.body
 
     TodoModel.create({text})
     .then((data) => {
