@@ -29,8 +29,11 @@ app.use(express.json())
 // All other Routes
 app.use(routes)
 
+app.get('/*', (req,res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'))
+})
 
-app.listen(3000, () => {
-    console.log('Listening on port: 3000')
+app.listen(3001, () => {
+    console.log('Listening on port: 3001')
     connectToDB()
 })
