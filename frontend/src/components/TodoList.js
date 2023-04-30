@@ -1,5 +1,4 @@
 import React from 'react'
-import { FaEdit } from "react-icons/fa";
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 
 

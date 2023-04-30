@@ -10,4 +10,14 @@ const getAllToDos = (setToDos) => {
     })
 }
 
-export {getAllToDos}
+//
+const addToDo = (text, setText, setToDo) => {
+     axios.post(`${baseUrl}/add`, {text})
+     .then((data) => {
+        console.log(data);
+        setText('')
+        getAllToDos(setToDo)
+     })
+}
+
+export {getAllToDos, addToDo}
