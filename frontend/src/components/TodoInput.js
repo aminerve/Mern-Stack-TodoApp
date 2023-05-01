@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import TodoList from './TodoList'
 import { useEffect } from 'react'
-import { addToDo, getAllToDos } from '../utils/HandleApi'
+import { addToDo, getAllToDos, updateToDo, deleteToDo } from '../utils/HandleApi'
 
 
 export default function TodoInput() {
@@ -9,6 +9,12 @@ export default function TodoInput() {
   const [text, setText] = useState('')
   const [updating, setUpdating] = useState(false)
   const [toDoId, setToDoId] = useState('')
+
+  const updateMode = (_id,text) => {
+    setUpdating(true)
+    setText(text)
+    setToDoId(_id)
+  }
 
   useEffect(() => {
     getAllToDos(setToDo)
@@ -21,12 +27,13 @@ export default function TodoInput() {
     <div className='inline-block bg-slate-600 py-4 px-12 rounded mt-8 text-white hover:bg-slate-400 transition-all duration-200'
     
     onClick={updating ? 
-      () => updateTodo(toDoId, text, setText, setToDo, setUpdating) 
+      () => updateToDo(toDoId, text, setText, setToDo, setUpdating) 
     : () => addToDo(text,setText,setToDo)}>
       {updating ? "Update" : "Add"}</div>
     <div>
       {toDo.map((item) => <TodoList key={item._id} text={item.text}
-      updateMode = {() => updateMode()}/>)}
+      updateMode = {() => updateMode(item._id, item.text)}
+      deleteToDo = {() => deleteToDo(item._id, setToDo)}/>)}
 
 
     </div>

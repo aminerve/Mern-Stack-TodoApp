@@ -25,6 +25,7 @@ module.exports.updateToDo = async (req,res) => {
     TodoModel.findByIdAndUpdate(_id, {text})
     .then(() => {
          console.log('ToDo Updated');
+         res.redirect('/');
 
     })
     .catch((error) => console.error(error))
@@ -36,6 +37,7 @@ module.exports.deleteToDo = async (req,res) => {
     TodoModel.findByIdAndDelete(_id)
     .then(() => {
          console.log('ToDo Deleted');
+         res.redirect('/');
 
     })
     .catch((error) => console.error(error))
