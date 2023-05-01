@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const React = require('react')
+const cors = require('cors')
 
 
 const app = express()
@@ -24,7 +25,7 @@ app.use((req, res, next) => {
 // app.use(bodyparser.json());
 app.use(express.urlencoded({extended: false}));
 app.use(express.json())
-
+app.use(cors())
 
 // All other Routes
 app.use(routes)
