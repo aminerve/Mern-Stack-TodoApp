@@ -25,7 +25,7 @@ module.exports.updateToDo = async (req,res) => {
     TodoModel.findByIdAndUpdate(_id, {text})
     .then(() => {
          console.log('ToDo Updated');
-         res.redirect('/');
+         res.redirect('/'); //refreshes page
 
     })
     .catch((error) => console.error(error))
