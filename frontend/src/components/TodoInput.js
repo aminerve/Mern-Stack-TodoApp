@@ -7,6 +7,8 @@ import { addToDo, getAllToDos } from '../utils/HandleApi'
 export default function TodoInput() {
   const [toDo, setToDo] = useState([]) 
   const [text, setText] = useState('')
+  const [updating, setUpdating] = useState(false)
+  const [toDoId, setToDoId] = useState('')
 
   useEffect(() => {
     getAllToDos(setToDo)
@@ -16,9 +18,15 @@ export default function TodoInput() {
     <h1 className='flex items-center justify-center text-slate-800 text-center px-5 text-3xl font-bold lg:text-5xl'>The Todo App</h1>
     <p className='my-8'>Application created by  <a href='https://www.linkedin.com/in/aiden-minerve-567085266/' target="_blank" rel="noopener noreferrer" className='text-indigo-600 underline active:text-orange-400'>Aiden Minerve</a></p>
     <input  type='text' placeholder='Add a ToDo!' value={text} onChange={(e) => setText(e.target.value)} className='py-2 px-4 rounded shadow w-full bg-slate-400 placeholder-white text-white'/>
-    <div className='inline-block bg-slate-600 py-4 px-12 rounded mt-8 text-white hover:bg-slate-400 transition-all duration-200' onClick={() => addToDo(text,setText,setToDo)}>Add</div>
+    <div className='inline-block bg-slate-600 py-4 px-12 rounded mt-8 text-white hover:bg-slate-400 transition-all duration-200'
+    
+    onClick={updating ? 
+      () => updateTodo(toDoId, text, setText, setToDo, setUpdating) 
+    : () => addToDo(text,setText,setToDo)}>
+      {updating ? "Update" : "Add"}</div>
     <div>
-      {toDo.map((item) => <TodoList key={item._id} text={item.text}/>)}
+      {toDo.map((item) => <TodoList key={item._id} text={item.text}
+      updateMode = {() => updateMode()}/>)}
 
 
     </div>
