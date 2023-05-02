@@ -10,12 +10,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "helmet": "^6.1.5",
+    "joi": "^17.9.2",
+    "joi-password-complexity": "^5.1.0",
     "jsonwebtoken": "^9.0.0",
     "jsx-view-engine": "^0.1.0",
     "mongoose": "^6.10.5",
+    "morgan": "^1.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }
