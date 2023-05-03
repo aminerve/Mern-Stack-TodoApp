@@ -1,43 +1,99 @@
-import React from "react";
 import { useState } from "react";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import styles from "./styles.module.css";
 
-export default function SignUpForm() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-    confirm: "",
-    error: "",
-  });
-  const disable = formData.password !== formData.confirm;
+const Signup = () => {
+	const [data, setData] = useState({
+		fName: "",
+		lName: "",
+		email: "",
+		password: "",
+	});
+	const [error, setError] = useState("");
+	const navigate = useNavigate();
 
-  const handleSubmit = (evt) => { 
-    evt.preventDefault()
-    console.log(formData)};
+	const handleChange = ({ currentTarget: input }) => {
+		setData({ ...data, [input.name]: input.value });
+	};
 
-  const handleChange = (evt) => {
-    setFormData({...formData, [evt.target.name]: evt.target.value, error: ''})
-  }
-  return (
-    <div>
-      <div className="form-container">
-        <form autoComplete="off" onSubmit={handleSubmit}>
-            <label>Name</label>
-            <input type="text" name="name" value={formData.name} onChange={handleChange}></input>
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		try {
+			const url = "http://localhost:8080/api/users";
+			const { data: res } = await axios.post(url, data);
+			navigate("/login");
+			console.log(res.message);
+		} catch (error) {
+			if (
+				error.response &&
+				error.response.status >= 400 &&
+				error.response.status <= 500
+			) {
+				setError(error.response.data.message);
+			}
+		}
+	};
 
-            <label>Email</label>
-            <input type="text" name="email" value={formData.email} onChange={handleChange}></input>
+	return (
+		<div className={styles.signup_container}>
+			<div className={styles.signup_form_container}>
+				<div className={styles.left}>
+					<h1>Welcome Back</h1>
+					<Link to="/login">
+						<button type="button" className={styles.white_btn}>
+							Sing in
+						</button>
+					</Link>
+				</div>
+				<div className={styles.right}>
+					<form className={styles.form_container} onSubmit={handleSubmit}>
+						<h1>Create Account</h1>
+						<input
+							type="text"
+							placeholder="First Name"
+							name="firstName"
+							onChange={handleChange}
+							value={data.fName}
+							required
+							className={styles.input}
+						/>
+						<input
+							type="text"
+							placeholder="Last Name"
+							name="lastName"
+							onChange={handleChange}
+							value={data.lName}
+							required
+							className={styles.input}
+						/>
+						<input
+							type="email"
+							placeholder="Email"
+							name="email"
+							onChange={handleChange}
+							value={data.email}
+							required
+							className={styles.input}
+						/>
+						<input
+							type="password"
+							placeholder="Password"
+							name="password"
+							onChange={handleChange}
+							value={data.password}
+							required
+							className={styles.input}
+						/>
+						{error && <div className={styles.error_msg}>{error}</div>}
+						<button type="submit" className={styles.green_btn}>
+							Sing Up
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	);
+};
 
-            <label>password</label>
-            <input type="password" name="password" value={formData.password} onChange={handleChange}></input>
-
-            <label>confirm</label>
-            <input type="password" name="confirm" value={formData.confirm} onChange={handleChange}></input>
-
-            <button type="submit" disabled={disable}>SIGN UP</button>
-        </form>
-      </div>
-      <p className="error-message" ></p>
-    </div>
-  );
-}
+export default Signup;
