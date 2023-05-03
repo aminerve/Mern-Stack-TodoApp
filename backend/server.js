@@ -3,9 +3,8 @@ const express = require('express')
 const morgan = require('morgan')
 const helmet = require('helmet')
 const cors = require('cors')
-
-
-
+const userRoute = require('./routes/users/userRoute')
+const authRoute = require('./routes/users/authRoute')
 
 const app = express()
 const routes = require('./routes/ToDoRoute')
@@ -33,6 +32,8 @@ app.use(morgan('dev'))
 app.use(helmet());
 
 // All other Routes
+app.use('/api/users', userRoute)
+app.use('/api/auth', authRoute)
 app.use(routes)
 
 app.get('/*', (req,res) => {
