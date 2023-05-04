@@ -9,6 +9,12 @@ The Todo App Features a sleek and responsive UI that allows you to create, updat
 - A Main page with an text input to add To-dos
 - Update to-do and delete to-do buttons
 
+## Project Planning
+- https://trello.com/b/QqjmsVHP/mern-stack-project
+
+## Deployed App
+- 
+
 ## WireFrame
 ![homepage](https://user-images.githubusercontent.com/122647915/236212706-6ae1e29a-b686-43fa-a929-649ff373913c.PNG)
 ![onUpdate](https://user-images.githubusercontent.com/122647915/236212744-ff0ee407-23bc-4a07-a9f7-ae1fc58a7ab6.PNG)
@@ -34,4 +40,5 @@ The Todo App Features a sleek and responsive UI that allows you to create, updat
 - Allow users to send friend requests to other users and keep track of each others to-do's.
 - Monetary rewards for completing a certain amount of to-dos.
 ## Acknowledgements
-- 
+- Basic Todo Functionality: https://www.youtube.com/watch?v=PvMDWbAPPK4&t=3514s
+- Login Auth Page: https://www.youtube.com/watch?v=HGgyd1bYWsE
