@@ -34,7 +34,7 @@ The Todo App Features a sleek and responsive UI that allows you to create, updat
 - Utilized MongoDB for the database, Express.js as the backend framework, React.js for the frontend, and Node.js as the runtime environment
 
 ## Unsolved Problems
-- Login and Signin pages will be fully responsive in the next update
+- Was running into error's trying to implement a responsive auth page. Will be implemented in the next update!
 
 ## Upcoming Features
 - Allow user to set a 'complete by' date for each to-do.
