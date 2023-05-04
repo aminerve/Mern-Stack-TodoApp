@@ -23,9 +23,15 @@ The Todo App Features a sleek and responsive UI that allows you to create, updat
 - ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 - ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
 
+### Technologies Explained
+- Utilized MongoDB for the database, Express.js as the backend framework, React.js for the frontend, and Node.js as the runtime environment
+
+## Unsolved Problems
+- Login and Signin pages will be fully responsive in the next update
 
 ## Upcoming Features
-
 - Allow user to set a 'complete by' date for each to-do.
 - Allow users to send friend requests to other users and keep track of each others to-do's.
 - Monetary rewards for completing a certain amount of to-dos.
+## Acknowledgements
+- 
