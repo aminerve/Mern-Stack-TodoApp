@@ -1,7 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import styles from "./styles.module.css";
 
 const Signup = () => {
 	const [data, setData] = useState({
@@ -36,45 +35,42 @@ const Signup = () => {
 	};
 
 	return (
-		<div className={styles.signup_container}>
-			<div className={styles.signup_form_container}>
-				<div className={styles.left}>
+		<div className>
+			<div >
+				<div>
 					<h1>Welcome Back</h1>
 					<Link to="/login">
-						<button type="button" className={styles.white_btn}>
-							Sing in
+						<button type="button" >
+							Sign in
 						</button>
 					</Link>
 				</div>
-				<div className={styles.right}>
-					<form className={styles.form_container} onSubmit={handleSubmit}>
+				<div>
+					<form  onSubmit={handleSubmit}>
 						<h1>Create Account</h1>
 						<input
 							type="text"
 							placeholder="First Name"
-							name="firstName"
+							name="fName"
 							onChange={handleChange}
 							value={data.fName}
 							required
-							className={styles.input}
 						/>
 						<input
 							type="text"
 							placeholder="Last Name"
-							name="lastName"
+							name="lName"
 							onChange={handleChange}
 							value={data.lName}
 							required
-							className={styles.input}
 						/>
 						<input
-							type="email"
+							type="text"
 							placeholder="Email"
 							name="email"
 							onChange={handleChange}
 							value={data.email}
 							required
-							className={styles.input}
 						/>
 						<input
 							type="password"
@@ -83,11 +79,10 @@ const Signup = () => {
 							onChange={handleChange}
 							value={data.password}
 							required
-							className={styles.input}
 						/>
-						{error && <div className={styles.error_msg}>{error}</div>}
-						<button type="submit" className={styles.green_btn}>
-							Sing Up
+						{error && <div >{error}</div>}
+						<button type="submit">
+							Sign Up
 						</button>
 					</form>
 				</div>

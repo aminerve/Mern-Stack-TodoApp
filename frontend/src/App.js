@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import './App.css';
 import TodoInput from './components/TodoInput';
-import AuthPage from './pages/AuthPage';
+import Login from './components/Login'
+import Signup from './components/SignUpForm';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -10,7 +10,7 @@ function App() {
       {user ?
       <TodoInput />
     :
-    <AuthPage />}
+    <Signup /> && <Login />}
       
     </div>
   );

@@ -3,12 +3,11 @@ const express = require('express')
 const morgan = require('morgan')
 const helmet = require('helmet')
 const cors = require('cors')
-const userRoute = require('./routes/users/userRoute')
+const usersRoute = require('./routes/users/usersRoute')
 const authRoute = require('./routes/users/authRoute')
 
 const app = express()
 const routes = require('./routes/ToDoRoute')
-const api = require('./routes/userRoute')
 const connectToDB = require('./config/db')
 
 //=============Configuring Engine
@@ -32,15 +31,13 @@ app.use(morgan('dev'))
 app.use(helmet());
 
 // All other Routes
-app.use('/api/users', userRoute)
+app.use('/api/users', usersRoute)
 app.use('/api/auth', authRoute)
 app.use(routes)
 
 app.get('/*', (req,res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'))
 })
-
-app.use('/api/v1', api)
 
 app.listen(3001, () => {
     console.log('Listening on port: 3001')
