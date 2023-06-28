@@ -42,4 +42,3 @@ The Todo App Features a sleek and responsive UI that allows you to create, updat
 - Monetary rewards for completing a certain amount of to-dos.
 ## Acknowledgements
 - Basic Todo Functionality: https://www.youtube.com/watch?v=PvMDWbAPPK4&t=3514s
-- Login Auth Page: https://www.youtube.com/watch?v=HGgyd1bYWsE
