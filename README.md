@@ -41,4 +41,4 @@ The Todo App Features a sleek and responsive UI that allows you to create, updat
 - Allow users to send friend requests to other users and keep track of each others to-do's.
 - Monetary rewards for completing a certain amount of to-dos.
 ## Acknowledgements
-- Styling: [https://www.youtube.com/watch?v=PvMDWbAPPK4&t=3514s](https://www.youtube.com/watch?v=IRK0-ApR-dc&t=1044s)https://www.youtube.com/watch?v=IRK0-ApR-dc&t=1044s
+- Styling: https://www.youtube.com/watch?v=IRK0-ApR-dc&t=1044s
